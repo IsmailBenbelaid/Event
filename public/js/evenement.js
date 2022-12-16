@@ -89,6 +89,6 @@ source.addEventListener("delete-event", (event) => {
   let data = JSON.parse(event.data);
   deleteEventClient(data.id);
   //remove event from the list
-  let event = document.querySelector(`li[data-id="${data.id}"]`);
-  event.remove();
+  let event1 = document.querySelector(`li[data-id="${data.id}"]`);
+  event1.remove();
 });
