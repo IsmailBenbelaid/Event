@@ -205,7 +205,7 @@ app.post("/api/event/mesevent", (request, response) => {
     let data = inscrireEvent(request.body.id, request.user.id_utilisateur);
 
     response.status(200).json({ data: data }).end();
-    response.pushJson({ data: data }, "add-event-inscrit");
+    response.pushJson({ data: data, id: request.body.id }, "add-event-inscrit");
   }
 });
 app.delete("/api/event/mesevent", (request, response) => {
@@ -215,7 +215,10 @@ app.delete("/api/event/mesevent", (request, response) => {
     let data = deleteEventInscris(request.body.id, request.user.id_utilisateur);
 
     response.status(200).json({ data: data }).end();
-    response.pushJson({ data: data }, "delete-event-inscrit");
+    response.pushJson(
+      { data: data, id: request.body.id },
+      "delete-event-inscrit"
+    );
   }
 });
 app.post("/api/contact", (request, response) => {
